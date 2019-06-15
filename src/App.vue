@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <v-toolbar>
+    <v-toolbar id="toolbar">
+      <v-toolbar-title><img src="./assets/GS.png" width="200" alt=""></v-toolbar-title>
       <router-link id="navbar-text" to="/"><v-toolbar-title>Home</v-toolbar-title></router-link>
       <router-link id="navbar-text" to="/About"><v-toolbar-title>About</v-toolbar-title></router-link>
       <router-link id="navbar-text" to="/Search"><v-toolbar-title>Search</v-toolbar-title></router-link>
@@ -20,14 +21,17 @@
 }
 #navbar-text{
   text-decoration: none;
-  color: #262626;
+  color: #ffffff;
   margin-right: 30px;
   border-bottom: 3px solid rgba(255, 255, 255, 0);
   transition: 0.3s;
 }
 
 #navbar-text:hover{
-  color: #ff3300;
-  border-bottom: 3px solid #ff3300;
+  border-bottom: 3px solid #ffffff;
+}
+
+#toolbar {
+  background-color: #ff3300
 }
 </style>
