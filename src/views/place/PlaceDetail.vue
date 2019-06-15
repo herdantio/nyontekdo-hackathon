@@ -80,7 +80,7 @@
         methods:{
             ...mapActions('search',[
                 'bindData'
-            ])
+            ]),
         },
         computed: {
             ...mapState('search', {

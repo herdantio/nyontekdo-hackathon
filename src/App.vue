@@ -2,7 +2,15 @@
   <v-app>
   <div id="app">
     <v-toolbar id="toolbar">
-      <v-toolbar-title @click.stop="drawer = !drawer"><img src="./assets/GS.png" width="200" alt=""></v-toolbar-title>
+      <v-layout>
+        <v-flex xs1>
+          <img id="hamburger-button" @click.stop="drawer = !drawer" src="./assets/burgermenu.png" width="30" alt="">
+        </v-flex>
+        <v-flex xs1>
+          <img src="./assets/GS.png" width="200" alt="">
+        </v-flex>
+      </v-layout>
+      <v-toolbar-title @click.stop="drawer = !drawer"></v-toolbar-title>
       <!-- <router-link id="navbar-text" to="/"><v-toolbar-title>Home</v-toolbar-title></router-link>
       <router-link id="navbar-text" to="/Search"><v-toolbar-title>Search</v-toolbar-title></router-link>
       <router-link id="navbar-text" to="/login"><v-toolbar-title>Register/Login</v-toolbar-title></router-link> -->
@@ -81,16 +89,20 @@
 </script>
 
 <style lang="scss">
-#router-link{
-  text-decoration: none;
-}
-
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#hamburger-button {
+  margin-top: 85px;
+}
+
+#router-link{
+  text-decoration: none;
 }
 .navbar-text{
   color: #ffffff;

@@ -31,7 +31,7 @@ export default new Router({
       path: '/search',
       name: 'search',
       component: () => import('./views/search/SearchGym.vue'),
-      beforeEnter: beforeEnter
+      // beforeEnter: beforeEnter
     }
   ]
 })

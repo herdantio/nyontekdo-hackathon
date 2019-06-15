@@ -52,7 +52,7 @@
       }
     },
     mounted(){
-        this.bindData()
+      this.bindData()
     },
     methods: {
         ...mapActions('search', [
