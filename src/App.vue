@@ -1,15 +1,16 @@
 <template>
+  <v-app>
   <div id="app">
     <v-toolbar id="toolbar">
       <v-toolbar-title><img src="./assets/GS.png" width="200" alt=""></v-toolbar-title>
       <router-link id="navbar-text" to="/"><v-toolbar-title>Home</v-toolbar-title></router-link>
-      <router-link id="navbar-text" to="/About"><v-toolbar-title>About</v-toolbar-title></router-link>
       <router-link id="navbar-text" to="/Search"><v-toolbar-title>Search</v-toolbar-title></router-link>
+      <router-link id="navbar-text" to="/login"><v-toolbar-title>Register/Login</v-toolbar-title></router-link>
       <v-spacer></v-spacer>
     </v-toolbar>
     <router-view/>
   </div>
-  
+  </v-app>
 </template>
 
 <style lang="scss">
