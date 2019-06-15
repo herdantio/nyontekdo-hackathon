@@ -1,8 +1,8 @@
 <template>
     <v-container fluid>
-        <v-layout>
-            <div v-for="gym in gyms">
-                <v-flex xs12 sm6 offset-sm3>
+        <div v-for="gym in gyms">
+           <v-layout>
+                <v-flex xs12 sm6>
                     <v-card>
                         <v-img
                         src="https://cdn.vuetifyjs.com/images/lists/ali.png"
@@ -44,14 +44,13 @@
                         </v-list>
                     </v-card>
                 </v-flex>
-            </div>
-            
-        </v-layout>
+            </v-layout>
+        </div>
     </v-container>
 </template>
 
 <script>
-    import {mapState} from 'vuex'
+    import {mapState, mapActions} from 'vuex'
     import MapWithMarker from "@/components/map/MapWithMarker";
     export default {
         name: "PlaceDetail",
@@ -76,14 +75,29 @@
             MapWithMarker: require('../../components/map/MapWithMarker')
         },
         created(){
-            console.log(this.$route.params.id)
+            this.bindData()
+        },
+        methods:{
+            ...mapActions('search',[
+                'bindData'
+            ])
         },
         computed: {
             ...mapState('search', {
                 gym: state => state.gym
             }),
             gyms(){
-                return this.gym
+                if(this.$route.params.id){
+                    return this.gym.filter((sportCenter)=>{
+                        if(sportCenter.id == this.$route.params.id){
+                            console.log(sportCenter.id)
+                            console.log(sportCenter.name)
+                            console.log(sportCenter.phone)
+                            console.log(sportCenter.address)
+                            return sportCenter.id == this.$route.params.id
+                        }
+                    })
+                }
             }
         }
     }

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 
-import {beforeEnterLogin} from './lib/route-guard/index'
+import {beforeEnterLogin, beforeEnter} from './lib/route-guard/index'
 
 Vue.use(Router)
 
@@ -16,23 +16,22 @@ export default new Router({
       component: Home
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    },
-    {
       path: '/login',
       name: 'login',
       component: () => import('./views/Login')
     },
     ,
     {
-      path: '/detail',
+      path: '/detail/:id',
       name: 'detail',
-      component: () => import('./views/place/PlaceDetail')
+      component: () => import('./views/place/PlaceDetail'),
+      // beforeEnter: beforeEnterLogin
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: () => import('./views/search/SearchGym.vue'),
+      beforeEnter: beforeEnter
     }
   ]
 })

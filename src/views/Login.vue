@@ -35,9 +35,6 @@
         ]
       }
     },
-    mounted(){
-      this.checkIsLoggedIn()
-    },
     methods: {
       ...mapActions([
               'signUserInGoogle',

@@ -2,13 +2,13 @@ import store from '../../store'
 
 const beforeEnterLogin = (to, from, next) => {
     if (store.state.user) {
-        next()
+        next('/search')
     } else {
-        next('/login')
+        next()
     }
 }
 
-const beforeEnter= (to, from, next) => {
+const beforeEnter = (to, from, next) => {
     if (store.state.user) {
         next()
     } else {
