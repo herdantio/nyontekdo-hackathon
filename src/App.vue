@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <v-toolbar>
+      <router-link id="navbar-text" to="/"><v-toolbar-title>Home</v-toolbar-title></router-link>
+      <router-link id="navbar-text" to="/About"><v-toolbar-title>About</v-toolbar-title></router-link>
+      <router-link id="navbar-text" to="/Search"><v-toolbar-title>Search</v-toolbar-title></router-link>
+      <v-spacer></v-spacer>
+    </v-toolbar>
     <router-view/>
   </div>
 </template>
@@ -16,14 +18,16 @@
   text-align: center;
   color: #2c3e50;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+#navbar-text{
+  text-decoration: none;
+  color: #262626;
+  margin-right: 30px;
+  border-bottom: 3px solid rgba(255, 255, 255, 0);
+  transition: 0.3s;
+}
+
+#navbar-text:hover{
+  color: #ff3300;
+  border-bottom: 3px solid #ff3300;
 }
 </style>

@@ -24,7 +24,7 @@ export default new Router({
     {
       path: '/search',
       name: 'search',
-      component: () => import('./views/search/SearchGym')
+      component: () => import('./views/search/SearchGym.vue')
     }
   ]
 })
