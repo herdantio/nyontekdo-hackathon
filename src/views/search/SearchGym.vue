@@ -22,7 +22,7 @@
               ></v-img>
             </v-flex>
             <v-flex xs8 >
-              <div>
+              <div class="description-text">
                 <h3 class="headline mb-0 text-xs-left">{{ gym.name}}</h3>
                 <p class="text-xs-left">{{ gym.address }}</p>
                 <p class="text-xs-left">+{{ gym.phone }}</p>
@@ -83,5 +83,7 @@
 </script>
 
 <style scoped>
-
+  .description-text{
+    margin-left: 20px;
+  }
 </style>
