@@ -7,7 +7,9 @@ const firebaseConfig = {
     messagingSenderId: "152649245526",
     appId: "1:152649245526:web:5a4a335a9a056d11"
 }
+const MAP_API_KEY = 'AIzaSyDJ7rNYLTzsJbrALsfhIc54ZZEhQzEXsPg'
 
 export {
-    firebaseConfig
+    firebaseConfig,
+    MAP_API_KEY
 }
