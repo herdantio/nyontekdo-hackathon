@@ -14,17 +14,20 @@
     <div v-for="gym in gyms">
       <v-flex xs12>
         <v-card>
-          <v-img
-            src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
-            aspect-ratio="2.75"
-          ></v-img>
-
           <v-card-title primary-title>
-            <div>
-              <h3 class="headline mb-0">{{ gym.name}}</h3>
-              <p>{{ gym.address }}</p>
-              <p>+{{ gym.phone }}</p>
-            </div>
+            <v-flex xs4>
+              <v-img
+                src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
+                aspect-ratio="2.75"
+              ></v-img>
+            </v-flex>
+            <v-flex xs8 >
+              <div>
+                <h3 class="headline mb-0 text-xs-left">{{ gym.name}}</h3>
+                <p class="text-xs-left">{{ gym.address }}</p>
+                <p class="text-xs-left">+{{ gym.phone }}</p>
+              </div>
+            </v-flex>
           </v-card-title>
         </v-card>
       </v-flex>
