@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import {vuexfireMutations} from 'vuexfire'
 import * as firebase from 'firebase'
-import firebaseApp from './lib/firebase/app'
 
+import search from './stores/modules/search/search'
 import router from './router'
 
 Vue.use(Vuex)
@@ -51,5 +51,7 @@ export default new Vuex.Store({
                 }
             })
         }
+    }, modules: {
+      search
     }
 })
