@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import {vuexfireMutations} from 'vuexfire'
 import * as firebase from 'firebase'
+// import firebaseApp from './lib/firebase/app'
+
 
 import search from './stores/modules/search/search'
 import router from './router'
@@ -15,6 +17,7 @@ export default new Vuex.Store({
     mutations: {
         ...vuexfireMutations,
         logout(state){
+            console.log('Logged out')
             state.user = null;
             router.push({name: 'login'})
         },
@@ -29,21 +32,22 @@ export default new Vuex.Store({
     },
     actions: {
         signUserInGoogle ({commit}) {
-            firebaseApp.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
+            firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
                 .then(({user}) => {
                     commit('buildUserResult', user)
+                    router.push({name: 'search'})
                 })
                 .catch(error => {
                     console.log(error)
                 })
         },
         logout ({commit}) {
-            firebaseApp.auth().signOut().then(()=>{
+            firebase.auth().signOut().then(()=>{
                 commit('logout')
             })
         },
         checkIsLoggedIn({commit}){
-            firebaseApp.auth().onAuthStateChanged((user)=>{
+            firebase.auth().onAuthStateChanged((user)=>{
                 if(user){
                     commit('buildUserResult', user)
                 } else {

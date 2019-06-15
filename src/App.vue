@@ -18,15 +18,34 @@
     dark
   >
     <img src="./assets/GS.png" width="200" alt="">
-    <v-list>
+    <v-list v-if="this.$store.state.user == null">
       <v-list-tile
         v-for="item in items"
         :key="item.title"
         avatar
-        @click=""
       >
         <v-list-tile-content>
-          <router-link id="router-link" :to="item.link" ><v-list-tile-title class="navbar-text" v-text="item.title"></v-list-tile-title></router-link>
+          <router-link id="router-link" :to="item.link" >
+            <v-list-tile-title class="navbar-text" v-text="item.title"></v-list-tile-title>
+          </router-link>
+        </v-list-tile-content>
+      </v-list-tile>
+    </v-list>
+    <v-list v-else>
+      <v-list-tile
+              v-for="item in items"
+              :key="item.title"
+              avatar
+      >
+        <v-list-tile-content v-if="item.link != '/login'">
+          <router-link :to="item.link" >
+            <v-list-tile-title class="navbar-text" v-text="item.title"></v-list-tile-title>
+          </router-link>
+        </v-list-tile-content>
+        <v-list-tile-content v-else @click="logout">
+          <router-link :to="'/'">
+            <v-list-tile-title class="navbar-text" v-text="'Logout'"></v-list-tile-title>
+          </router-link>
         </v-list-tile-content>
       </v-list-tile>
     </v-list>
@@ -35,6 +54,7 @@
 </template>
 
 <script>
+  import {mapActions} from 'vuex'
   export default {
     data(){
       return {
@@ -47,6 +67,15 @@
         mini: false,
         right: null
       }
+    },
+    created(){
+      this.checkIsLoggedIn()
+    },
+    methods:{
+      ...mapActions([
+        'logout',
+        'checkIsLoggedIn'
+      ])
     }
   }
 </script>
