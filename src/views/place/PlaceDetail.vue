@@ -27,28 +27,34 @@
                             </v-layout>
                         </v-img>
 
-                        <v-list two-line>
-                        <v-list-tile @click="">
-                            <v-list-tile-content>
-                                <v-list-tile-title>+{{gym.phone}}</v-list-tile-title>
-                                <v-list-tile-sub-title>Phone</v-list-tile-sub-title>
-                            </v-list-tile-content>
-                        </v-list-tile>
+                        <v-list three-line>
+                            <v-list-tile @click="">
+                                <v-list-tile-content>
+                                    <v-list-tile-title>+{{gym.phone}}</v-list-tile-title>
+                                    <v-list-tile-sub-title>Phone</v-list-tile-sub-title>
+                                </v-list-tile-content>
+                            </v-list-tile>
 
-                        <v-list-tile @click="">
-                            <v-list-tile-content>
-                                <v-list-tile-title>{{gym.address}}</v-list-tile-title>
-                                <v-list-tile-sub-title>Address</v-list-tile-sub-title>
-                            </v-list-tile-content>
-                        </v-list-tile>
-                        </v-list>
-
-                        <v-list>
+                            <v-list-tile @click="">
+                                <v-list-tile-content>
+                                    <v-list-tile-title>{{gym.address}}</v-list-tile-title>
+                                    <v-list-tile-sub-title>Address</v-list-tile-sub-title>
+                                </v-list-tile-content>
+                            </v-list-tile>
                             <v-list-tile>
                                 <v-list-tile-content v-for="data in classes" :key="data.id">
-                                    <v-list-tile-title>{{data.name.stringValue}}</v-list-tile-title>
-                                    <v-list-tile-sub-title>{{data.start.stringValue}} - {{data.end.stringValue}}</v-list-tile-sub-title>
-                                    <v-list-tile-sub-title>{{data.capacity.integerValue - data.students.arrayValue.values.length}} seats left!</v-list-tile-sub-title>
+                                    <v-list-tile-title id="class-title">{{data.name.stringValue}}</v-list-tile-title>
+                                    <div class="open-close-hours">
+                                        <v-layout>
+                                            <v-flex xs6>
+                                                <v-list-tile-sub-title >{{data.start.stringValue}} - {{data.end.stringValue}}</v-list-tile-sub-title>
+                                                <v-list-tile-sub-title >{{data.capacity.integerValue - data.students.arrayValue.values.length}} seats left!</v-list-tile-sub-title>
+                                            </v-flex>
+                                            <v-flex id="join-button" xs6>
+                                                <v-btn color="error">Join Class</v-btn>
+                                            </v-flex>
+                                        </v-layout>
+                                    </div>
                                 </v-list-tile-content>
                             </v-list-tile>
                         </v-list>
@@ -118,5 +124,7 @@
 </script>
 
 <style scoped>
-
+   #join-button {
+       
+   }
 </style>

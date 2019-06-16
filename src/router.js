@@ -18,20 +18,21 @@ export default new Router({
     {
       path: '/login',
       name: 'login',
-      component: () => import('./views/Login')
+      component: () => import('./views/Login'),
+      beforeEnter: beforeEnterLogin
     },
     ,
     {
       path: '/detail/:id',
       name: 'detail',
       component: () => import('./views/place/PlaceDetail'),
-      // beforeEnter: beforeEnterLogin
+      beforeEnter: beforeEnter
     },
     {
       path: '/search',
       name: 'search',
       component: () => import('./views/search/SearchGym.vue'),
-      // beforeEnter: beforeEnter
+      beforeEnter: beforeEnter
     }
   ]
 })
