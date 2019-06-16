@@ -17,7 +17,7 @@
           <v-card-title primary-title>
             <v-flex xs4>
               <v-img
-                src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
+                v-bind:src="gym.photoUrl"
                 aspect-ratio="2.75"
               ></v-img>
             </v-flex>
