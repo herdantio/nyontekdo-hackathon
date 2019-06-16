@@ -68,7 +68,7 @@
       return {
         drawer: null,
         items: [
-          { title:'HOME', link:'/home'},
+          // { title:'HOME', link:'/home'},
           { title:'SEARCH', link:'/search'},
           { title:'REGISTER / LOGIN', link:'/login'}
         ],
