@@ -66,10 +66,10 @@
       gyms(){
         if(this.searchBar){
           return this.gym.filter((sportCenter)=>{
-            if(sportCenter.name == this.searchBar){
-              return sportCenter.name == this.searchBar
-            }else if(sportCenter.address == this.searchBar){
-              return sportCenter.address == this.searchBar
+            if(sportCenter.name.toLowerCase() == this.searchBar.toLowerCase()){
+              return sportCenter.name.toLowerCase() == this.searchBar.toLowerCase()
+            }else if(sportCenter.address.toLowerCase() == this.searchBar.toLowerCase()){
+              return sportCenter.address.toLowerCase() == this.searchBar.toLowerCase()
             }else if(sportCenter.phone == this.searchBar){
               return sportCenter.phone == Number(this.searchBar)
             }
