@@ -13,7 +13,7 @@
                                 fill-height
                             >
                                 <v-card-title>
-                                
+
 
                                 <v-spacer></v-spacer>
 
@@ -42,6 +42,16 @@
                             </v-list-tile-content>
                         </v-list-tile>
                         </v-list>
+
+                        <v-list>
+                            <v-list-tile>
+                                <v-list-tile-content v-for="data in classes" :key="data.id">
+                                    <v-list-tile-title>{{data.name.stringValue}}</v-list-tile-title>
+                                    <v-list-tile-sub-title>{{data.start.stringValue}} - {{data.end.stringValue}}</v-list-tile-sub-title>
+                                    <v-list-tile-sub-title>{{data.capacity.integerValue - data.students.arrayValue.values.length}} seats left!</v-list-tile-sub-title>
+                                </v-list-tile-content>
+                            </v-list-tile>
+                        </v-list>
                     </v-card>
                 </v-flex>
             </v-layout>
@@ -58,7 +68,7 @@
         sportCenter: {
           name: '',
           address: '',
-          phone: ''  
+          phone: ''
         },
         props: {
             name:{
@@ -75,16 +85,20 @@
             MapWithMarker: require('../../components/map/MapWithMarker')
         },
         created(){
-            this.bindData()
+            // this.bindData()
+            this.getClasses(this.$route.params.id)
         },
         methods:{
-            ...mapActions('search',[
-                'bindData'
+            ...mapActions('detail',[
+                'getClasses'
             ]),
         },
         computed: {
             ...mapState('search', {
                 gym: state => state.gym
+            }),
+            ...mapState('detail', {
+                classes: state => state.classes
             }),
             gyms(){
                 if(this.$route.params.id){
