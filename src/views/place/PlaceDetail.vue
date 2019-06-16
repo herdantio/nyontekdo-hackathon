@@ -5,7 +5,7 @@
                 <v-flex xs12 sm6>
                     <v-card>
                         <v-img
-                        src="https://cdn.vuetifyjs.com/images/lists/ali.png"
+                        v-bind:src="gym.photoUrl"
                         height="300px"
                         >
                             <v-layout
