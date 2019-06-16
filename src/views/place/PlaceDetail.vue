@@ -35,6 +35,10 @@
                                 </v-list-tile-content>
                             </v-list-tile>
 
+                            <div>
+                                <map-with-marker :lat="gym.lat" :lng="gym.lng" style="height: 300px;"></map-with-marker>
+                            </div>
+
                             <v-list-tile @click="">
                                 <v-list-tile-content>
                                     <v-list-tile-title>{{gym.address}}</v-list-tile-title>
@@ -67,10 +71,12 @@
 
 <script>
     import {mapState, mapActions} from 'vuex'
-    import MapWithMarker from "@/components/map/MapWithMarker";
+
     export default {
         name: "PlaceDetail",
-        components: {MapWithMarker},
+        components: {
+            MapWithMarker: () => import('../../components/map/MapWithMarker')
+        },
         sportCenter: {
           name: '',
           address: '',
@@ -86,9 +92,6 @@
             phone:{
                 default: '000000'
             }
-        },
-        component:{
-            MapWithMarker: require('../../components/map/MapWithMarker')
         },
         created(){
             // this.bindData()
@@ -125,6 +128,6 @@
 
 <style scoped>
    #join-button {
-       
+
    }
 </style>
