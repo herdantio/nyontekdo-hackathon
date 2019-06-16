@@ -6,6 +6,7 @@ import * as firebase from 'firebase'
 
 
 import search from './stores/modules/search/search'
+import detail from './stores/modules/detail/detail'
 import router from './router'
 
 Vue.use(Vuex)
@@ -56,6 +57,7 @@ export default new Vuex.Store({
             })
         }
     }, modules: {
-      search
+      search,
+      detail
     }
 })
